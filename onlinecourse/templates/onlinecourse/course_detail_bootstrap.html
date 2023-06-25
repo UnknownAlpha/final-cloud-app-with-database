@@ -53,9 +53,9 @@
             <!-- Task: show questions and choices -->
             {% if user.is_authenticated %}
             <!-- Use Bootstrap Collapse to hide exam first -->
-            <div id="exam" class="collapse">
+            <div id="exam" >
                 <!-- For each question in the course -->
-                <form id="questionform" action="{% url 'onlinecourse:submit_exam' %}" method="post">
+                <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
                     {% csrf_token %}
                     {% for question in course.question_set.all %}
                     <div class="card mt-1">
